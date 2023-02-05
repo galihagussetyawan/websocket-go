@@ -2,7 +2,6 @@ package websocket
 
 import (
 	"log"
-	"sync"
 
 	"github.com/gorilla/websocket"
 )
@@ -11,7 +10,6 @@ type Client struct {
 	ID   string
 	Conn *websocket.Conn
 	Pool *Pool
-	mu   sync.Mutex
 }
 
 type Message struct {
