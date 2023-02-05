@@ -8,5 +8,20 @@
   </head>
   <body>
     <h1>websocket</h1>
+    <script>
+      const socket = new WebSocket("ws://localhost:8080/ws");
+
+      socket.onopen = (msg) => {
+        console.log("Message from websocket", msg);
+      };
+
+      socket.onclose = (event) => {
+        console.log("socket closed connection: ", event);
+      };
+
+      socket.onerror = (err) => {
+        console.log("Socket error: ", err);
+      };
+    </script>
   </body>
 </html>
