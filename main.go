@@ -20,8 +20,10 @@ func serveWs(p *websocket.Pool, w http.ResponseWriter, r *http.Request) {
 		Pool: p,
 	}
 
+	go client.Write()
+	go client.Read()
+
 	p.Register <- client
-	client.Read()
 }
 
 func setupRoutes() {
